@@ -1,5 +1,5 @@
 server:
-  port: 8761
+  port: 8763
 
 eureka:
   instance:
@@ -9,7 +9,3 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
-spring:
-  profiles:
-    active: production
