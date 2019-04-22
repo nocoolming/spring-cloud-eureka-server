@@ -36,7 +36,7 @@ pipeline {
         success {
             echo 'This will run only if successful'
 
-            mvn clean 
+            mvn clean
         }
         failure {
             echo 'This will run only if failed'
