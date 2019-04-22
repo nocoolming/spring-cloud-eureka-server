@@ -3,7 +3,7 @@ echo "We'll be deploy this application to servers"
 
 echo "Build project"
 chmod +x ./mvnw
-./mvnw clean install
+./mvnw clean install -DskipTests
 
 echo "Remove old version of docker image"
 docker rmi nocoolming/eureka-server
