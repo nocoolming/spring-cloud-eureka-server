@@ -1,10 +1,32 @@
 pipeline {
-    agent { docker 'maven:3.3.3' }
+    agent any
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'mvn clean install'
+                sh 'echo "Hello World"'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+
+                    mvn clean install
+
+
+
+
+                '''
             }
         }
+        stage('Deploy') {
+            steps {
+                retry(3) {
+                    sh './deploy.sh'
+                }
+
+                timeout(time: 3, unit: 'MINUTES') {
+                    sh 'health-check.sh'
+                }
+            }
+        }
+
     }
 }
