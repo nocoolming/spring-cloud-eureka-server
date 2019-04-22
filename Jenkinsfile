@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Building'
 
-                ./mvnw clean install
+                
             }
         }
         stage('Test') {
