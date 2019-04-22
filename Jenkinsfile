@@ -4,6 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building'
+
+                ./mvnw clean install
             }
         }
         stage('Test') {
