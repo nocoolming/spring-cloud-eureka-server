@@ -14,7 +14,7 @@ pipeline {
         stage('Test') {
                     steps {
                         sh 'mvn test'
-                        sh 'target'
+                        sh 'ls target'
                     }
                     post {
                         always {
