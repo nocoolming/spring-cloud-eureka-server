@@ -13,8 +13,10 @@ pipeline {
             }
         }
         stage('Push') {
-            sh 'cat password.txt | docker login --username=nocoolming@aliyun.com registry.cn-shanghai.aliyuncs.com --password-stdin'
-            sh 'docker push nocoolming/eureka-server'
+            steps {
+                sh 'cat password.txt | docker login --username=nocoolming@aliyun.com registry.cn-shanghai.aliyuncs.com --password-stdin'
+                sh 'docker push nocoolming/eureka-server'
+            }
         }
         stage('Test') {
                     steps {
