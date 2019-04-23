@@ -8,11 +8,6 @@ pipeline {
                 sh 'docker build -t nocoolming/eureka-server .'
             }
         }
-        stage('Test') {
-                    steps {
-                    
-                    }
-                }
         stage('Push') {
             steps {
                 sh 'cat password.txt | docker login --username=nocoolming@aliyun.com registry.cn-shanghai.aliyuncs.com --password-stdin'
