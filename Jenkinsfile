@@ -9,24 +9,19 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
+                sh 'docker build -t nocoolming/eureka-server .'
             }
+        }
+        stage('Push') {
+            sh 'cat password.txt | docker login --username=nocoolming@aliyun.com registry.cn-shanghai.aliyuncs.com --password-stdin'
+            sh 'docker push nocoolming/eureka-server'
         }
         stage('Test') {
                     steps {
                         sh 'mvn test'
-                        sh 'ls target'
-                    }
-                    post {
-                        always {
-                            junit 'target/surefire-reports/*.xml'
-                        }
                     }
                 }
 
-        stage('Deliver') {
-                    steps {
-                        sh './jenkins/scripts/deliver.sh'
-                    }
-                }
+
     }
 }
