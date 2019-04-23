@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                sh './mvnw -B -DskipTests clean package'
                 sh 'docker build -t nocoolming/eureka-server .'
             }
         }
@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Test') {
                     steps {
-                        sh 'mvn test'
+                        sh './mvnw test'
                     }
                 }
 
