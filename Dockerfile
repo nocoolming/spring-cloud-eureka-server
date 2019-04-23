@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:8
 MAINTAINER Mingming Li  "21374618@qq.com"
 
 ENV LANG en_US.UTF-8

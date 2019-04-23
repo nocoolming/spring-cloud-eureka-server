@@ -9,7 +9,7 @@ import static org.aspectj.bridge.MessageUtil.fail;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ServerApplicationTests {
+public class EurekaServiceApplicationTests {
 
     @Test
     public void contextLoads() {
@@ -18,7 +18,7 @@ public class ServerApplicationTests {
     @Test
     public void testAppConstructor() {
         try {
-            ServerApplication app = new ServerApplication();
+            EurekaServiceApplication app = new EurekaServiceApplication();
         } catch (Exception e) {
             fail("Construction failed.");
         }

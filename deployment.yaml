@@ -8,12 +8,12 @@ spec:
     metadata:
       labels:
         app: eureka-server
-    annotations:
-      - time: timeString
     spec:
       containers:
         - name: eureka-server
           image: registry.cn-shanghai.aliyuncs.com/nocoolming/eureka-server
+          #        image: nocoolming/eureka-server
+          imagePullPolicy: Always
           ports:
             - containerPort: 8763
 ---
