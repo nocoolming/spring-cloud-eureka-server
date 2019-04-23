@@ -8,6 +8,11 @@ pipeline {
                 sh 'docker build -t nocoolming/eureka-server .'
             }
         }
+        stage('Test') {
+                    steps {
+                        sh './mvnw test'
+                    }
+                }
         stage('Push') {
             steps {
                 sh 'cat password.txt | docker login --username=nocoolming@aliyun.com registry.cn-shanghai.aliyuncs.com --password-stdin'
@@ -16,12 +21,10 @@ pipeline {
                 sh 'docker push registry.cn-shanghai.aliyuncs.com/nocoolming/eureka-server'
             }
         }
-        stage('Test') {
-                    steps {
-                        sh './mvnw test'
-                    }
-                }
-
-
+        stage('Deploy') {
+            steps {
+                sh ''
+            }
+        }
     }
 }
