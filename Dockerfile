@@ -1,6 +1,6 @@
-#FROM shipilev/openjdk-shenandoah:8
+FROM shipilev/openjdk-shenandoah:8
 #FROM openjdk:13.0.1-jdk-buster
-FROM nocoolming/redhat-openjdk-18
+#FROM nocoolming/redhat-openjdk-18
 #FROM openjdk:8
 MAINTAINER Mingming Li <21374618@qq.com>
 
